@@ -6,11 +6,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { toast } from "sonner";
 
-interface Address {
-  prefecture: string;
-  city: string;
-  town: string;
-}
+
 
 export function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
