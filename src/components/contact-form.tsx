@@ -14,11 +14,7 @@ interface Address {
 
 export function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const [address, setAddress] = useState<Address>({
-    prefecture: "",
-    city: "",
-    town: "",
-  });
+
 
   async function searchAddress(postalCode: string) {
     const cleanedPostalCode = postalCode.replace(/[-－\s]/g, "");
@@ -38,11 +34,6 @@ export function ContactForm() {
 
       if (data.results) {
         const result = data.results[0];
-        setAddress({
-          prefecture: result.address1,
-          city: result.address2,
-          town: result.address3,
-        });
 
         const prefectureInput = document.getElementById(
           "prefecture"
@@ -115,7 +106,7 @@ export function ContactForm() {
             variant="outline"
             className="whitespace-nowrap"
             disabled={isLoading}
-            onClick={(e) => {
+            onClick={() => {
               const input = document.getElementById(
                 "postalCode"
               ) as HTMLInputElement;
